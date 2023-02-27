@@ -1,0 +1,36 @@
+version: '3'
+services:
+  postgres:
+    image: postgres:15-alpine
+    restart: always
+    container_name: postgres
+    ports:
+      - 5432:5432
+    volumes:
+      - ./pg/postgresql/:/var/lib/postgresql
+      - ./pg/data/:/var/lib/postgresql/data
+    environment:
+      TZ: Asia/Shanghai
+      POSTGRES_USER: sonar
+      POSTGRES_PASSWORD: sonar123456
+      POSTGRES_DB: sonar
+    networks:
+      - sonar-network
+  sonar:
+    image: sonarqube:9-community
+    restart: always
+    container_name: sonar
+    depends_on:
+      - postgres
+    volumes:
+      - ./sonarqube/extensions:/opt/sonarqube/extensions
+      - ./sonarqube/logs:/opt/sonarqube/logs
+      - ./sonarqube/data:/opt/sonarqube/data
+      - ./sonarqube/conf:/opt/sonarqube/conf
+    ports:
+      - 9000:9000
+    networks:
+      - sonar-network
+networks:
+  sonar-network:
+    driver: bridge

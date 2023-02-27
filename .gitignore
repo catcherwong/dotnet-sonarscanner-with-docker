@@ -1,0 +1,10 @@
+sample/sonarqube/data/*
+!sample/sonarqube/data/.gitkeep
+sample/sonarqube/extensions/*
+!sample/sonarqube/extensions/.gitkeep
+sample/sonarqube/logs/*
+!sample/sonarqube/logs/.gitkeep
+sample/pg/data/*
+!sample/pg/data/.gitkeep
+sample/pg/postgresql/*
+!sample/pg/postgresql/.gitkeep
