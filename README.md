@@ -30,6 +30,10 @@ docker run --name dotnet-scanner -it --rm \
 
 ## More Information
 
+### Blogs
+
+https://www.cnblogs.com/catcher1994/p/17180511.html
+
 ### Execute Step
 
 ![](./images/run-1.png)
